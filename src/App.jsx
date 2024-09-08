@@ -1,12 +1,15 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { Posts } from './pages/posts.jsx';
+
+const queryClient = new QueryClient();
 
 export const App = () => {
   return (
-    <h1 className="text-3xl font-bold underline text-red-600">
-      Hello world!
-    </h1>
+    <QueryClientProvider client={queryClient}>
+      <Posts />
+    </QueryClientProvider>
   )
 }
+
+
