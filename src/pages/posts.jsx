@@ -1,14 +1,9 @@
-import { useQuery } from 'react-query';
-import { PostApi } from '../api/postApi.js';
 import { Loading } from '../components/Loading.jsx';
 import { ErrorLoading } from '../components/ErrorLoading.jsx';
+import { useGetPosts } from '../apiHooks/useGetPosts.js';
 
 export const Posts = () => {
-  const { isLoading, error, data } = useQuery(
-    'repoData',
-    () => PostApi.getPosts({ limit: 10 })
-  );
-
+  const { isLoading, error, data } = useGetPosts({ limit: 10 });
 
   return (
     <div className="bg-blue-800">
